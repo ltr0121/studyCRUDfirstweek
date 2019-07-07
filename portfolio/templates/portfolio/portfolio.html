@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+
+{% load staticfiles%}
+    <main role="main">
+
+      <section class="jumbotron text-center">
+      
+        <div class="container">
+          <h1 class="jumbotron-heading">Portfolio</h1>
+          <br>
+          <img src = "{% static 'images.jpg' %}" alt="">
+          <p class="lead text-muted">portfolio page를 만들어요</p>
+          <p>
+            <a href="{% url 'home'%}" class="btn btn-primary my-2">Home</a>
+          </p>
+        </div>
+      </section>
+
+      
+    </main>
+
+    
+
+{% endblock %}
