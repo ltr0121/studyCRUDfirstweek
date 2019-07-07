@@ -1,5 +1,7 @@
 # CRUD
 
+~~수정 중~~
+
 #### Create
 가상환경 실행
 project와 app 생성
