@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block content %}
+
+{% load staticfiles %}
+    <br>
+	<h4 class='slidebanner'>CLICK THIS SLIDE BANNER!</h4>
+	<div id="slidebox">
+		<ul id="slider">
+			<li>
+				<img src="{% static 'Chrysanthemum.jpg' %}" />
+			</li>
+			<li>
+				<img src="{% static 'Desert.jpg' %}" />
+			</li>
+			<li>
+				<img src="{% static 'Hydrangeas.jpg' %}" />
+			</li>
+			<li>
+				<img src="{% static 'Jellyfish.jpg' %}" />
+			</li>
+			<li>
+				<img src="{% static 'Koala.jpg' %}" />
+			</li>
+		</ul>
+	</div>
+
+{% endblock content %}
