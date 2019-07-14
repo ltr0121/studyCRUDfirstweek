@@ -67,12 +67,12 @@ urlpatterns = [
     path('', blog.views.home, name='home'),
 ]
 ```
-1. static 폴더와 templates 폴더 만들기
+6. static 폴더와 templates 폴더 만들기
 ```bash
 python manage.py collectstatic
 ```
 
-3. settings.py에 static 폴더와 templates 폴더 설정하기
+7. settings.py에 static 폴더와 templates 폴더 설정하기
 static 파일 한 곳에 모아 주는 명령어
 
 ```python
@@ -90,7 +90,7 @@ STATICFILES_DIRS = [
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 ```
 
-4. SUPERUSER 만들기
+8. SUPERUSER 만들기
 ```bash
 python manage.py createsuperuser
 ```
