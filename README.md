@@ -37,3 +37,25 @@ static 파일 한 곳에 모아 주는 명령어 입력
 ```bash
 python manage.py collectstatic
 ```
+
+
+# input type=hidden
+
+
+UI가 눈에 보이지는 않지만 서버로 데이터 전송할 때 사용
+
+```html
+<html>
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <form action="http://localhost/hidden.php">
+            <input type="text" name="id">
+            <input type="hidden" name="hide" value="egoing">
+            <input type="submit">
+        </form>
+    </body>
+</html>
+```
+
