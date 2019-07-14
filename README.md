@@ -169,3 +169,6 @@ UI가 눈에 보이지는 않지만 서버로 데이터 전송할 때 사용
 </html>
 ```
 
+submit 버튼을 누르면 `http://localhost/hidden.php?id=&hide=egoing`처럼 url에 정보를 담아서 전송
+폼 제출 시 사용자가 변경해서는 안 되는 데이터를 함께 보낼 때 유용하게 사용
+
