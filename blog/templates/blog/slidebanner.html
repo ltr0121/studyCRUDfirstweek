@@ -1,5 +1,96 @@
-{% extends 'base.html' %}
-{% block content %}
+<head>
+<title>Django</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+<link href="https://fonts.googleapis.com/css?family=Nanum+Gothic&display=swap" rel="stylesheet">
+
+<style>
+* {
+    font-family: 'Nanum Gothic', sans-serif;
+}
+
+#slidebox {
+		position:relative;
+		width:300px;
+		height:200px;
+		overflow:hidden;
+		white-space:nowrap;
+		border:1px solid #000;
+    align: center;
+    display: block; margin: 0px auto;
+	}
+	#slidebox ul#slider {
+		list-style:none;
+		margin:0;
+		padding:0;
+	}
+	#slidebox ul li {
+		position:absolute;
+		width:300px;
+		height:300px;
+	}
+	#slidebox ul li img {
+		width:300px;
+		height:200px;
+	}
+
+  .slidebanner {
+    text-align: center;
+  }
+
+</style>
+</head>
+
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" >태림이다 왜</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+      <li class="nav-item active">
+        <a class="nav-link" href="{% url 'home'%}">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'new'%}">글쓰기</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Dropdown
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="{% url 'portfolio' %}"  >Portfolio</a>
+          <a class="dropdown-item"  href="{% url 'slidebanner' %}">Slide Banner</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="{% url 'login' %}">Login</a>
+          <a class="dropdown-item" href="{% url 'login' %}">Logout</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="{% url 'signup' %}">Sign up</a>
+        </div>
+      </li>
+      
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
+
+<div class="container">
+
 
 {% load staticfiles %}
     <br>
@@ -24,4 +115,32 @@
 		</ul>
 	</div>
 
-{% endblock content %}
+
+</div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+    <script src="../../assets/js/vendor/popper.min.js"></script>
+    <script src="../../dist/js/bootstrap.min.js"></script>
+    <script src="../../assets/js/vendor/holder.min.js"></script>
+
+    <script type='text/javascript'>
+      var x = 300;
+      var slider = document.getElementById("slider");
+      var slideArray = slider.getElementsByTagName("li");
+      var slideMax = slideArray.length - 1;
+      var curSlideNo = 0;
+      var changeSlide = function(){
+        for (i = 0; i <= slideMax; i++) {
+          if (i == curSlideNo) slideArray[i].style.left = 0;
+          else slideArray[i].style.left = -x + "px";
+        }
+      }
+      changeSlide();
+      slider.addEventListener('click', function () {
+        curSlideNo = curSlideNo + 1;
+        if ( curSlideNo > slideMax ) curSlideNo = 0;
+        changeSlide();
+      }, false);
+    </script>
+</body>
