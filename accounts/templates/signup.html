@@ -1,6 +1,12 @@
 {% extends "base.html" %}
 {% block content %}
 
+{% if error %}
+{{ error }}
+<br>
+<br>
+{% endif %}
+
 <h1>Sign up!</h1>
     <form method="POST" action = "{% url 'signup' %}">
     {% csrf_token %} <!--보안 위해 써 주는 난수 발생기-->
