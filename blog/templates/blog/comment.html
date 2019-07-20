@@ -1,0 +1,23 @@
+
+
+<h2>{{b.title}}</h2>
+<h4>{{b.pub_date}}</h4>
+<p>{{b.body}}</p>
+
+
+
+
+<form action="{% url 'detail' blog.id %}" method = "POST">
+    {%csrf_token%}
+    {{comment_form}}
+    <input type = "submit" value="Comment" class="btn btn-outline-primary">
+</form>
+
+<table class = 'table table-striped'>
+    {% for comment in comments %}
+    <p>{{comment.text}}</p>
+
+    {% endfor %}
+</table>
+
+<hr>
