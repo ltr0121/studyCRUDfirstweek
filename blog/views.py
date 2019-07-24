@@ -28,7 +28,7 @@ def detail(request, blog_id):
     comment_form = CommentForm()
     comments = blog.comments.all()
 
-    return render(request, 'blog/comment.html', {'blog':blog, 'comments':comments, 'comment_form':comment_form})
+    return render(request, 'blog/detail.html', {'blog':blog, 'comments':comments, 'comment_form':comment_form})
 
 def new(request):
     return render(request, 'blog/new.html')

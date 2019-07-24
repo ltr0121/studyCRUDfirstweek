@@ -19,7 +19,7 @@ class Blog(models.Model):
         return self.body[:50]
     
 class Comment (models.Model):
-    blog= models.ForeignKey(Blog, on_delete=models.CASCADE, related_name='comments')
+    blog= models.ForeignKey(Blog, on_delete=models.CASCADE, null=True,related_name='comments')
     text = models.TextField()
     created = models.DateTimeField(auto_now_add = True)
     updated = models.DateTimeField(auto_now = True)

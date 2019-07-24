@@ -7,21 +7,28 @@
 <p>{{blog.body}}</p>
 <a href="{% url 'home' %}">돌아가기</a>
 
- <form action="{% url 'detail' blog.id %}" method = "POST">
-        {%csrf_token%}
-        {{comment_form}}
-            <input type = "submit" value="Comment" class="btn btn-outline-primary">
-    </form>
 
-    <table class = 'table table-striped'>
-        {% for comment in comments %}
-        <p>{{comment.text}}</p>
-        <tr>
 
-            <td a href = "{% url 'blog:comment_delete' comment.id %}">삭제하기</td>
-            <td a href = "{% url 'blog:comment_update' comment.id %}">수정하기</td>
-        </tr>
-        {% endfor %}
-    </table>
+
+<h2>{{b.title}}</h2>
+<h4>{{b.pub_date}}</h4>
+<p>{{b.body}}</p>
+
+
+
+
+<form action="{% url 'detail' blog.id %}" method = "POST">
+    {%csrf_token%}
+    {{comment_form}}
+    <input type = "submit" value="Comment" class="btn btn-outline-primary">
+</form>
+
+<table class = 'table table-striped'>
+    {% for comment in comments %}
+    <p>{{comment.text}}</p>
+
+    {% endfor %}
+</table>
+
 
 {% endblock %}
